@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="vog" style = " color: red; background-color: #b3d4fc; text-decoration: underline;" >text</span>
+<div id="block" style=" width: 100px; height: 161px; background: url('1.jpg') 0 0 no-repeat"> </div>
+<script>
+var j = 0 ;
+var arr = document.getElementById('block').style.background.split(" ");
+var x = parseInt(arr[1]);
+var y = parseInt(arr[2]);
+
+     function koordinat() {
+            j++;
+         document.getElementById('block').style.marginLeft = j + "0px";
+        x -=100;
+         document.getElementById('block').style.background ='url("1.jpg") '+ x +'px '+ y + 'px no-repeat'
+         if ((j == screen.width - parseInt(document.getElementById('block').style.width))  )
+             j = 0;
+         if (x == -600){
+             x=0;
+             y-=161;
+         }
+         if (y == -483){
+             x = 0;
+             y = 0;
+         }
+    }
+ var timerId = setInterval(function() {
+    koordinat();
+},200 );
+</script>
+
+</body>
+</html>
